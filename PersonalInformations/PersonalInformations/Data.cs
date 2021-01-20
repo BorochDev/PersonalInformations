@@ -27,7 +27,7 @@ namespace PersonalInformations
                 YearOfBirth = "20";
                 YearOfBirth += pesel[0];
                 YearOfBirth += pesel[1];
-                if (pesel[2] == 2)
+                if (pesel[2] == '2')
                 {
                     MonthOfBirth = "0";
                     MonthOfBirth += pesel[3];

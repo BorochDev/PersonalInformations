@@ -3,57 +3,99 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Linq;
 
 namespace PersonalInformations
 {
     public class DataService : IDataService
     {
         List<Data> dataList = new List<Data>();
-        private string Path =@"C:\Users\User\source\GitHub\PersonalInformations\PersonalInformations\PersonalInformations\PersonData\DataStorage.json" ;
+        private readonly string Path =@"C:\Users\User\source\GitHub\PersonalInformations\PersonalInformations\PersonalInformations\PersonData\DataStorage.json" ;
+
+        public DataService()
+        {
+            UpdateList();
+        }
+        
         public void SaveData(Data data)
         {
-            var strResultJson = JsonConvert.SerializeObject(data);
-            Console.WriteLine(strResultJson);
-            Console.ReadLine();
+            dataList.Add(data);
+
+            var strResultJson = JsonConvert.SerializeObject(dataList);
+            File.WriteAllText(Path, strResultJson);
+            
         }
 
-        public void DeleteData(string path)
+        public void DeleteData(Data data)
         {
-            throw new NotImplementedException();
+            dataList.Remove(data);
+            SaveData();
+
         }
 
         public List<Data> GetAllData()
         {
 
-            throw new NotImplementedException();
-            
+            UpdateList();
+
+            return (dataList);
         }
 
-        public List<Data> GetAllDataByYear()
+        public List<Data> GetAllDataByYear(string year)
         {
-            throw new NotImplementedException();
+            UpdateList();
+
+            List<Data> datas = dataList.Where(i => i.YearOfBirth == year).ToList();
+
+            return datas;                   
         }
 
         public List<Data> GetAllDataFemale()
         {
-            throw new NotImplementedException();
+            UpdateList();
+
+            List<Data> datas = dataList.Where(i => i.Gender == "Kobieta").ToList();
+
+            return datas;
         }
 
         public List<Data> GetAllDataMale()
         {
-            throw new NotImplementedException();
-        }
+            UpdateList();
 
+            List<Data> datas = dataList.Where(i => i.Gender == "Mężczyzna").ToList();
+
+            return datas;
+        }
+        
         public List<Data> GetDataByFullName(string name)
         {
-            throw new NotImplementedException();
+            UpdateList();
+
+            List<Data> datas = dataList.Where(i => i.FirstName + " " + i.LastName == name).ToList();
+
+            return datas;
         }
 
         public Data GetDataByPESEL(string pesel)
         {
-            throw new NotImplementedException();
+            UpdateList();
+
+            Data data = dataList.Where(i => i.PESEL == pesel).FirstOrDefault();
+
+            return data;
         }
 
-        
+        private void UpdateList()
+        {
+            string JsonString = File.ReadAllText(Path);
+            dataList = JsonConvert.DeserializeObject<List<Data>>(JsonString);
+        }
+
+        private void SaveData()
+        {
+            var strResultJson = JsonConvert.SerializeObject(dataList);
+            File.WriteAllText(Path, strResultJson);
+        }
     }
 }

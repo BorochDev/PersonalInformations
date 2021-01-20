@@ -7,12 +7,12 @@ namespace PersonalInformations
     public interface IDataService
     {
         void SaveData(Data data);
-        void DeleteData(string path);
+        void DeleteData(Data data);
         Data GetDataByPESEL(string pesel);
         List<Data> GetAllData();
         List<Data> GetDataByFullName(string name);
         List<Data> GetAllDataMale();
         List<Data> GetAllDataFemale();
-        List<Data> GetAllDataByYear();
+        List<Data> GetAllDataByYear(string year);
     }
 }

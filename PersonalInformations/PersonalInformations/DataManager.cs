@@ -24,7 +24,8 @@ namespace PersonalInformations
             Console.Clear();
             Console.WriteLine("Podaj PESEL osoby, którą chcesz usunąć");
             pesel = Console.ReadLine();
-            dataService.DeleteData(pesel);
+            Data data = dataService.GetDataByPESEL(pesel);
+            dataService.DeleteData(data);
         }
 
         public void EditData()
@@ -32,13 +33,17 @@ namespace PersonalInformations
             Console.Clear();
             Console.WriteLine("Podaj PESEL osoby, którą chcesz edytować");
             pesel = Console.ReadLine();
-            dataService.DeleteData(pesel);
+            Data data = dataService.GetDataByPESEL(pesel);
+            dataService.DeleteData(data);
             dataService.SaveData(DataCreating());
         }
 
         public void ShowAllDataByYear()
         {
-            Data[] datas = dataService.GetAllDataByYear().ToArray();
+            Console.Clear();
+            Console.WriteLine("Podaj rok poszukiwań: ");
+            string year = Console.ReadLine();
+            Data[] datas = dataService.GetAllDataByYear(year).ToArray();
             Console.Clear();
             index = 1;
             foreach (var data in datas)
@@ -46,14 +51,14 @@ namespace PersonalInformations
                 Console.WriteLine($"{index}){data.FirstName} {data.LastName}");
                 index++;
             }
-            if(int.TryParse(Console.ReadKey().ToString(), out choice))
+            if(int.TryParse(Console.ReadLine().ToString(), out choice))
             {
                 if (choice<index)
                 {
                     PrintData(datas[choice - 1]);
                 }
             }
-            
+            Console.ReadKey();
         }
 
         public void ShowAllDataFemale()
@@ -66,13 +71,14 @@ namespace PersonalInformations
                 Console.WriteLine($"{index}){data.FirstName} {data.LastName}");
                 index++;
             }
-            if (int.TryParse(Console.ReadKey().ToString(), out choice))
+            if (int.TryParse(Console.ReadLine().ToString(), out choice))
             {
                 if (choice < index)
                 {
                     PrintData(datas[choice - 1]);
                 }
             }
+            Console.ReadKey();
         }
 
         public void ShowAllDataMale()
@@ -85,13 +91,14 @@ namespace PersonalInformations
                 Console.WriteLine($"{index}){data.FirstName} {data.LastName}");
                 index++;
             }
-            if (int.TryParse(Console.ReadKey().ToString(), out choice))
+            if (int.TryParse(Console.ReadLine().ToString(), out choice))
             {
                 if (choice < index)
                 {
                     PrintData(datas[choice - 1]);
                 }
             }
+            Console.ReadKey();
         }
 
         public void ShowAllData()
@@ -104,13 +111,14 @@ namespace PersonalInformations
                 Console.WriteLine($"{index}){data.FirstName} {data.LastName}");
                 index++;
             }
-            if (int.TryParse(Console.ReadKey().ToString(), out choice))
+            if (int.TryParse(Console.ReadLine().ToString(), out choice))
             {
                 if (choice < index)
                 {
                     PrintData(datas[choice - 1]);
                 }
             }
+            Console.ReadKey();
         }
 
         public void ShowDataByFullName()
@@ -126,13 +134,14 @@ namespace PersonalInformations
                 Console.WriteLine($"{index}) {data.PESEL}");
                 index++;
             }
-            if (int.TryParse(Console.ReadKey().ToString(), out choice))
+            if (int.TryParse(Console.ReadLine().ToString(), out choice))
             {
                 if (choice < index)
                 {
                     PrintData(datas[choice - 1]);
                 }
             }
+            Console.ReadKey();
         }
 
         public void ShowDataByPESEL()
@@ -149,7 +158,7 @@ namespace PersonalInformations
             {
                 Console.WriteLine("Wprowadziłeś zły pesel");
             }
-            
+            Console.ReadKey();
         }
 
 
@@ -252,15 +261,13 @@ namespace PersonalInformations
         private bool NIPCheck(string nip)
         {
             int overall = 0;
-            int number;
             index = 0;
             int[] multipliers = { 6, 5, 7, 2, 3, 4, 5, 6, 7 };
-            int[] NIPnumber = new int[10];
             if (nip.Length!=10)
             {
                 return false;
             }
-            if (!int.TryParse(nip,out number))
+            if (!int.TryParse(nip,out int number))
             {
                 return false;
             }
@@ -301,6 +308,8 @@ namespace PersonalInformations
                 Console.WriteLine("Nie ma w bazie kogoś takiego");
             }
         }
+
+        
 
     }
 }

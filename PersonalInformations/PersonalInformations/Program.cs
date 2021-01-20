@@ -4,10 +4,9 @@ namespace PersonalInformations
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             bool end = false;
-            int choice;
             DataManager dataManager = new DataManager();
             //Add new data
             //Get person data
@@ -21,7 +20,7 @@ namespace PersonalInformations
                 Console.WriteLine("3)Edytuj dane");
                 Console.WriteLine("4)Pobierz dane...");
                 Console.WriteLine("5)Zamknij program");
-                int.TryParse(Console.ReadLine(), out choice);
+                int.TryParse(Console.ReadLine(), out int choice);
                 switch (choice)
                 {
                     case 1:
@@ -62,7 +61,6 @@ namespace PersonalInformations
                             default:
                                 break;
                         }
-                        choice = 4;
                         break;
                     case 5:
                         end = true;
