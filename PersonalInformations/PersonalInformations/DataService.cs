@@ -6,37 +6,32 @@ namespace PersonalInformations
 {
     public class DataService : IDataService
     {
-        public void SaveData(Data data)
-        {
-            throw new NotImplementedException();
-        }
-
         public void DeleteData(string path)
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<Data> GetAllData()
+        public List<Data> GetAllData()
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<Data> GetAllDataByYear()
+        public List<Data> GetAllDataByYear()
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<Data> GetAllDataFemale()
+        public List<Data> GetAllDataFemale()
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<Data> GetAllDataMale()
+        public List<Data> GetAllDataMale()
         {
             throw new NotImplementedException();
         }
 
-        public ICollection<Data> GetDataByFullName(string name)
+        public List<Data> GetDataByFullName(string name)
         {
             throw new NotImplementedException();
         }
@@ -46,5 +41,9 @@ namespace PersonalInformations
             throw new NotImplementedException();
         }
 
+        public void SaveData(Data data)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

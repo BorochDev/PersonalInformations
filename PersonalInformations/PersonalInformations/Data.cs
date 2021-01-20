@@ -15,9 +15,8 @@ namespace PersonalInformations
         public string NIP { get; set; }
 
 
-        public Data()
+        public Data(string pesel)
         {
-            //Set name email and NIP
             //Set gender and date of birth from pesel number
         }
 

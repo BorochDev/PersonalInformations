@@ -45,19 +45,19 @@ namespace PersonalInformations
                         switch (choice)
                         {
                             case 1:
-                                dataManager.GetAllData();
+                                dataManager.ShowAllData();
                                 break;
                             case 2:
-                                dataManager.GetDataByPESEL();
+                                dataManager.ShowDataByPESEL();
                                 break;
                             case 3:
-                                dataManager.GetAllDataMale();
+                                dataManager.ShowAllDataMale();
                                 break;
                             case 4:
-                                dataManager.GetAllDataFemale();
+                                dataManager.ShowAllDataFemale();
                                 break;
                             case 5:
-                                dataManager.GetAllDataByYear();
+                                dataManager.ShowAllDataByYear();
                                 break;
                             default:
                                 break;
