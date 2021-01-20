@@ -185,6 +185,7 @@ namespace PersonalInformations
                 email = Console.ReadLine();
                 if (EmailCheck(email))
                 {
+                    data.Email = email;
                     break;
                 }
                 else
@@ -200,6 +201,7 @@ namespace PersonalInformations
                 nip = Console.ReadLine();
                 if (NIPCheck(nip))
                 {
+                    data.NIP = nip;
                     break;
                 }
                 else
@@ -271,7 +273,7 @@ namespace PersonalInformations
                 }
                 else
                 {
-                    if (overall%11!=numb)
+                    if (overall%11!=int.Parse(numb.ToString()))
                     {
                         return false;
                     }
@@ -288,8 +290,8 @@ namespace PersonalInformations
             {
                 Console.WriteLine($"PESEL: {data.PESEL}");
                 Console.WriteLine($"Imie i nazwisko: {data.FirstName} {data.LastName}");
-                Console.WriteLine($"Data urodzenia: {data.DateOfBirth.Day}.{data.DateOfBirth.Month}." +
-                    $"{data.DateOfBirth.Year}");
+                Console.WriteLine($"Data urodzenia: {data.DayOfBirth}.{data.MonthOfBirth}." +
+                    $"{data.YearOfBirth}");
                 Console.WriteLine($"Płeć: {data.Gender}");
                 Console.WriteLine($"Email: {data.Email}");
                 Console.WriteLine($"NIP: {data.NIP}");

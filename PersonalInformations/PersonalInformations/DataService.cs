@@ -14,6 +14,7 @@ namespace PersonalInformations
         {
             var strResultJson = JsonConvert.SerializeObject(data);
             Console.WriteLine(strResultJson);
+            Console.ReadLine();
         }
 
         public void DeleteData(string path)
