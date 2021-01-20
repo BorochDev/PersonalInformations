@@ -8,8 +8,8 @@ namespace PersonalInformations
     {
         void SaveData(Data data);
         void DeleteData(string path);
-        Data GetData();
         Data GetDataByPESEL(string pesel);
+        ICollection<Data> GetAllData();
         ICollection<Data> GetDataByFullName(string name);
         ICollection<Data> GetAllDataMale();
         ICollection<Data> GetAllDataFemale();

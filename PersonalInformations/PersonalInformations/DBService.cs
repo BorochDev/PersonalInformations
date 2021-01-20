@@ -4,7 +4,7 @@ using System.Text;
 
 namespace PersonalInformations
 {
-    class DBService : IDataService
+    class DBService
     {
         public void SaveData(Data data)
         {
@@ -16,7 +16,7 @@ namespace PersonalInformations
             throw new NotImplementedException();
         }
 
-        public ICollection<Data> GetAllDataByYear()
+        public ICollection<Data> GetAllData()
         {
             throw new NotImplementedException();
         }

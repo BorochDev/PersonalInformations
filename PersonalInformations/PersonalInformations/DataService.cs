@@ -16,6 +16,11 @@ namespace PersonalInformations
             throw new NotImplementedException();
         }
 
+        public ICollection<Data> GetAllData()
+        {
+            throw new NotImplementedException();
+        }
+
         public ICollection<Data> GetAllDataByYear()
         {
             throw new NotImplementedException();
@@ -31,11 +36,6 @@ namespace PersonalInformations
             throw new NotImplementedException();
         }
 
-        public Data GetData()
-        {
-            throw new NotImplementedException();
-        }
-
         public ICollection<Data> GetDataByFullName(string name)
         {
             throw new NotImplementedException();
@@ -45,5 +45,6 @@ namespace PersonalInformations
         {
             throw new NotImplementedException();
         }
+
     }
 }
