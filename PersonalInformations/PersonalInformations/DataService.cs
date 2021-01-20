@@ -1,11 +1,21 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Text;
 
 namespace PersonalInformations
 {
     public class DataService : IDataService
     {
+        List<Data> dataList = new List<Data>();
+        private string Path =@"C:\Users\User\source\GitHub\PersonalInformations\PersonalInformations\PersonalInformations\PersonData\DataStorage.json" ;
+        public void SaveData(Data data)
+        {
+            var strResultJson = JsonConvert.SerializeObject(data);
+            Console.WriteLine(strResultJson);
+        }
+
         public void DeleteData(string path)
         {
             throw new NotImplementedException();
@@ -13,7 +23,9 @@ namespace PersonalInformations
 
         public List<Data> GetAllData()
         {
+
             throw new NotImplementedException();
+            
         }
 
         public List<Data> GetAllDataByYear()
@@ -41,9 +53,6 @@ namespace PersonalInformations
             throw new NotImplementedException();
         }
 
-        public void SaveData(Data data)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }

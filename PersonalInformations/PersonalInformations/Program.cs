@@ -21,7 +21,7 @@ namespace PersonalInformations
                 Console.WriteLine("3)Edytuj dane");
                 Console.WriteLine("4)Pobierz dane...");
                 Console.WriteLine("5)Zamknij program");
-                int.TryParse(Console.ReadKey().ToString(), out choice);
+                int.TryParse(Console.ReadLine(), out choice);
                 switch (choice)
                 {
                     case 1:
@@ -41,7 +41,7 @@ namespace PersonalInformations
                         Console.WriteLine("4)Kobiet");
                         Console.WriteLine("5)Z danego roku");
                         Console.WriteLine("6)Powrót");
-                        int.TryParse(Console.ReadKey().ToString(), out choice);
+                        int.TryParse(Console.ReadLine(), out choice);
                         switch (choice)
                         {
                             case 1:
