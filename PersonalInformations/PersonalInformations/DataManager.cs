@@ -6,12 +6,24 @@ namespace PersonalInformations
 {
     public class DataManager
     {
-        public void SaveData()
+        private DataService dataService;
+
+        public DataManager()
+        {
+            dataService = new DataService();
+        }
+
+        public void AddData()
         {
             throw new NotImplementedException();
         }
 
         public void DeleteData()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void EditData()
         {
             throw new NotImplementedException();
         }
@@ -31,7 +43,7 @@ namespace PersonalInformations
             throw new NotImplementedException();
         }
 
-        public Data GetData()
+        public Data GetAllData()
         {
             throw new NotImplementedException();
         }
