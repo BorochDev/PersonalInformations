@@ -302,11 +302,30 @@ namespace PersonalInformations
                 Console.WriteLine($"Płeć: {data.Gender}");
                 Console.WriteLine($"Email: {data.Email}");
                 Console.WriteLine($"NIP: {data.NIP}");
+                Console.WriteLine();
+                Console.WriteLine("1) Usuń");
+                Console.WriteLine("2) Edytuj");
+                Console.WriteLine("3) Dalej");
+
+                int.TryParse(Console.ReadLine(),out choice);
+                switch (choice)
+                {
+                    case 1:
+                        dataService.DeleteData(data);
+                        break;
+                    case 2:
+                        dataService.DeleteData(data);
+                        dataService.SaveData(DataCreating());
+                        break;
+                    default:
+                        break;
+                }
             }
             else
             {
                 Console.WriteLine("Nie ma w bazie kogoś takiego");
             }
+
         }
 
         
